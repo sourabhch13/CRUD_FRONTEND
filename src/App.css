@@ -51,3 +51,11 @@
 .link:hover{
   background-color: rgb(122, 122, 227);
 }
+
+.EmployeeCard{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
