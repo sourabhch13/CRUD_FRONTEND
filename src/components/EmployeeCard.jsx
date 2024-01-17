@@ -1,9 +1,10 @@
 import React from 'react'
 
-
+import { useState } from 'react';
 
 const EmployeeCard = ({ first_name, last_name, id,email, role }) => {
 
+  const [updateMode,setUpdateMode] = useState(false)
 
   const controller = new AbortController();
 	const signal = controller.signal;
@@ -31,7 +32,7 @@ const EmployeeCard = ({ first_name, last_name, id,email, role }) => {
         </div>
         <div className="sideBar">
         <button className='btn' onClick={handleDelete}>Delete</button>
-        <button className='btn'>Update</button>
+        <button className='btn' onClick={()=> setUpdateMode(prev => !prev)}>Update</button>
         </div>
     </div>
 
