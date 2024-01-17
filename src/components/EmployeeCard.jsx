@@ -2,10 +2,12 @@ import React from 'react'
 
 import { useState } from 'react';
 
-const EmployeeCard = ({ first_name, last_name, id,email, role }) => {
+import EmployeeUpdateForm  from './EmployeeUpdateForm';
+
+const EmployeeCard = (props) => {
 
   const [updateMode,setUpdateMode] = useState(false)
-
+  const { first_name, last_name, id,email, role } = props
   const controller = new AbortController();
 	const signal = controller.signal;
 
@@ -21,9 +23,11 @@ const EmployeeCard = ({ first_name, last_name, id,email, role }) => {
             }); 
             window.location.reload();
     }
-
-  return (
-    <div className='wrapper'>
+    const updateParentState = ()=> {
+      setUpdateMode(prev => !prev)
+    } 
+    const card=
+      <div className='wrapper'>
         <div className="employee-card">
           <h2>Name: {`${first_name} ${last_name}`}</h2>
           <p>Email: {email}</p>
@@ -34,9 +38,19 @@ const EmployeeCard = ({ first_name, last_name, id,email, role }) => {
         <button className='btn' onClick={handleDelete}>Delete</button>
         <button className='btn' onClick={()=> setUpdateMode(prev => !prev)}>Update</button>
         </div>
-    </div>
+      </div>
 
-    
+      
+    const p = {key:props.id,...props,updateParentState};
+    const updateForm = <EmployeeUpdateForm {...p} />
+
+  return (
+    <div className='wrapper'>
+    {
+      updateMode ?  updateForm: card
+    } 
+
+  </div>
   );
 };
 

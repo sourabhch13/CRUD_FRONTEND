@@ -24,7 +24,7 @@ const DepartmentCard = (props) => {
             }); 
             window.location.reload();
     }
-
+    
     const p = {key:props.id,...props,updateParentState};
     const updateForm = <DepartmentUpdateForm {...p} />
 
