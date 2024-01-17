@@ -1,6 +1,6 @@
 import {BrowserRouter as Router, Route,Routes,Link} from 'react-router-dom';
-import Department from './components/Department';
-import Employee from './components/Employee';
+import Department from './components/Department/Department'
+import Employee from './components/Employee/Employee';
 import './App.css';
 
 
