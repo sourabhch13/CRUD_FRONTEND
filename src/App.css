@@ -48,11 +48,9 @@
   background-color: blue;
 }
 
-.link:hover{
-  background-color: rgb(122, 122, 227);
-}
 
 .EmployeeCard{
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -91,9 +89,8 @@
   flex-direction: column;
 }
 
-
-
 .employee-card {
+  width: 500px;
   background-color: blue; /* Blue color */
   color: white; /* Black text color */
   padding: 0px 15px 10px 15px;
