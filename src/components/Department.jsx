@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import  DepartmentCard  from './DepartmentCard'
-
+import DepartmentForm  from './DepartmentForm'
 const Department = () => {
 
     const [allDepartment,setAllDepartment] = useState([])
-
+    const [postMode,setPostMode] = useState(false)
     useEffect(()=>{
         const controller = new AbortController();
 		const signal = controller.signal;
@@ -29,11 +29,16 @@ const Department = () => {
         const props = {key:dep.id,...dep};
         return <DepartmentCard {...props}/>
     })
+
     return (
-        <>
-            <h1>Department</h1>
-            {Departments}
-        </>
+        <div className='card-wrapper' >
+            <div className='header'>
+                <h1>Department</h1>
+                <button onClick={()=> setPostMode(prev => !prev)} className={`btn ${postMode ? 'active':''}`} >Add</button>
+            </div>
+            {postMode ? <DepartmentForm/>:Departments}
+            
+        </div>
     )
 }
 export default Department;
